@@ -1,10 +1,13 @@
-.background    { background: rgb(52, 166, 251);
-                 table-layout: fixed;
+.background    { background-image: url("http://i63.tinypic.com/ins87b.jpg");;
+                background-repeat: no-repeat;
+				 background-attachment: fixed;
+				table-layout: fixed;
+				 
                  border-spacing: 0;   }
 .background td { padding: 0;          }
-.lava          { background: rgb(255, 100, 100); }
+.lava          { background: rgb(248, 111, 134); }
 .wall          { background: white;   }
-.floater	   { background: blue;   }
+.floater	   { background: black;   }
 
 .game {
   overflow: hidden;
