@@ -25,6 +25,14 @@ function Level(plan) {
       // Because there is a third case (space ' '), use an "else if" instead of "else"
       else if (ch == "!")
         fieldType = "lava";
+	  else if (ch == "o")
+        fieldType = "coins";
+	  else if (ch == ">")
+        fieldType = "move";
+	   else if (ch == "@")
+        fieldType = "player";
+	   else if (ch == "d")
+        fieldType = "danger";
 	//enter y
 	  if (ch == "y")
 		fieldType = "floater";

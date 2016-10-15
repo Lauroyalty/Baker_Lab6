@@ -8,6 +8,20 @@
 .lava          { background: rgb(248, 111, 134); }
 .wall          { background: white;   }
 .floater	   { background: black;   }
+.coins         {background-image: url("http://vignette3.wikia.nocookie.net/fantendo/images/7/7e/Purple_Star_SMW3D.png/revision/latest?cb=20120705195557");;
+				background-size: 20px 20px;
+				background-repeat: no-repeat;
+				}
+.danger        {background-image: url("https://i.imgsafe.org/1b54c7977c.png");;
+				background-size: 20px 20px;
+				background-repeat: no-repeat;
+				}
+.player        {background-image: url("https://i.imgsafe.org/1aaf60d9a5.png");;
+				background-size: 20px 20px;
+				background-repeat: no-repeat;
+				}
+/*.player        {background: purple;}*/
+.move          {background: rgb(255, 110, 87);}
 
 .game {
   overflow: hidden;
