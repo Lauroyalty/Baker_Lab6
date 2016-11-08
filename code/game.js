@@ -467,7 +467,7 @@ if(!audioElement) {
            return actor.type == "coin";
          })) {
       this.status = "won";
-      this.finishDelay = 2;
+      this.finishDelay = 1.5;
     }
    
 };
