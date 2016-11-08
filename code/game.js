@@ -1,3 +1,8 @@
+//background music
+var myAudio = document.createElement("audio");
+myAudio.src = "https://trello-attachments.s3.amazonaws.com/580f303806de65d3c6041eba/5821578c1dad289f2ad3cf6d/37ffbd109057abb42366c0b9044d5834/%5BAmbient%5D_Molac_-_Bubble.mp3";
+myAudio.play();
+
 // Map each class of actor to a character
 var actorChars = {
   "@": Player,
