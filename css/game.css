@@ -42,11 +42,11 @@
 				background-size: 20px 20px;
 				background-repeat: no-repeat;
 				}
-.background .win			{background-image: url("https://i.imgsafe.org/12eb0e4f96.gif");;
-                 table-layout: fixed;
+.won .background{
+				background-image: url("https://i.imgsafe.org/12eb0e4f96.gif");;
+                 
                  border-spacing: 0;  
 				 background-repeat: no-repeat;
 				 background-attachment: fixed;
-				table-layout: fixed;
-	
+				
 				}
