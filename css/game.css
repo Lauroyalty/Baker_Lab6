@@ -6,6 +6,13 @@
 				table-layout: fixed;
  }
 .background td { padding: 0;          }
+.won .background{
+				background-image: url("https://i.imgsafe.org/12eb0e4f96.gif");;
+                 border-spacing: 0;  
+				 background-repeat: no-repeat;
+				 background-attachment: fixed;
+				 
+				}
 .lava          { background: rgb(248, 111, 134); }
 .wall          { background: white;   }
 
@@ -41,12 +48,4 @@
 .filter .player {background-image: url("https://i.imgsafe.org/0f7e296efb.png");;
 				background-size: 20px 20px;
 				background-repeat: no-repeat;
-				}
-.won .background{
-				background-image: url("https://i.imgsafe.org/12eb0e4f96.gif");;
-                 
-                 border-spacing: 0;  
-				 background-repeat: no-repeat;
-				 background-attachment: fixed;
-				
 				}

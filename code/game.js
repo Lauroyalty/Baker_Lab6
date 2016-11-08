@@ -546,12 +546,6 @@ function runGame(plans, Display) {
         startLevel(n + 1);
       else
 	  alert("You win!");
-  var image = new Image();
-image.onload = function() {
-    alert('image loaded');
-};
-image.src = "https://i.imgsafe.org/12eb0e4f96.gif" + 'image/image.jpg';
-
     });
   } 
   startLevel(0);
