@@ -1,6 +1,7 @@
 // Map each class of actor to a character
 var actorChars = {
   "@": Player,
+  "c": Cloud, //speed power up
   "o": Coin, // A coin will wobble up and down
   "d": Enemy,
   "=": Lava, "|": Lava, "v": Lava 
@@ -39,6 +40,8 @@ function Level(plan) {
       // Because there is a third case (space ' '), use an "else if" instead of "else"
       else if (ch == "!")
         fieldType = "lava";
+	  else if (ch == "c")
+        fieldType = "cloud";
 	   else if (ch == "d")
         fieldType = "enemy";
 	//enter y
@@ -92,7 +95,7 @@ Player.prototype.type = "player";
 
 // Add a new actor type as a class
 function Coin(pos) {
-  this.basePos = this.pos = pos.plus(new Vector(0.1, -1.0));
+  this.basePos = this.pos = pos.plus(new Vector(-0.5, -1.0));
   this.size = new Vector(2.0, 2.0);
   // Make it go back and forth in a sine wave.
   this.wobble = Math.random() * Math.PI * 2;
@@ -125,6 +128,16 @@ function Enemy(pos) {
 }
 Enemy.prototype.type = "enemy";
 
+//Add speed up through cloud
+function Cloud(pos, ch) {
+  this.pos = pos;
+  this.size = new Vector(1, 1);
+  if (ch == "c") {
+    // Horizontal cloud
+    this.speed = new Vector(2, 0);
+  }
+}
+Cloud.prototype.type = "cloud";
 
 // Helper function to easily create an element of a type provided 
 // and assign it a class.
@@ -307,8 +320,21 @@ var maxStep = 0.05;
 var wobbleSpeed = 8, wobbleDist = 0.07;
 
 //end 
+//Cloud
+Cloud.prototype.act = function(step, level) {
+  var newPos = this.pos.plus(this.speed.times(step));
+  if (!level.obstacleAt(newPos, this.size))
+    this.pos = newPos;
+  else if (this.repeatPos)
+    this.pos = this.repeatPos;
+  else
+    this.speed = this.speed.times(-1);
+};
 
+var maxStep = 0.05;
 
+var wobbleSpeed = 8, wobbleDist = 0.07;
+//end
 var maxStep = 0.05;
 
 var wobbleSpeed = 8, wobbleDist = 0.07;
@@ -393,7 +419,10 @@ Player.prototype.act = function(step, level, keys) {
     this.pos.y += step;
     this.size.y -= step;
   }
-  
+if (level.status == "filter") {
+     this.moveX(step, level, keys);
+  this.moveY(step, level, keys);
+  }
 
 };
 
@@ -404,6 +433,19 @@ if (type == "lava" && this.status == null) {
 }else if (type == "enemy"&& this.status == null) {
 	this.status = "lost";
     this.finishDelay = 0.5;
+}else if (type == "cloud" && this.status == null) {
+	this.status = "filter";
+	 var audioElementtwo;
+if(!audioElementtwo) {
+  audioElementtwo = document.createElement('audio');
+  audioElementtwo.innerHTML = '<source src="http://www.flashkit.com/imagesvr_ce/flashkit/soundfx/Cartoon/Bloops/Plopp-jh-8598/Plopp-jh-8598_hifi.mp3"' + "/audio/sound.mp3"+ '" type="audio/mpeg" />'
+}
+  this.actors = this.actors.filter(function(other) {
+	this.filterDelay = 1.5;
+	 audioElementtwo.play();
+	return other != actor;
+});
+
 } else if (type == "coin") {
     this.actors = this.actors.filter(function(other) {
 	 var audioElement;
@@ -422,7 +464,6 @@ if(!audioElement) {
       this.status = "won";
       this.finishDelay = 1;
     }
-  
    
 };
 
@@ -504,7 +545,7 @@ function runGame(plans, Display) {
       else if (n < plans.length - 1)
         startLevel(n + 1);
       else
-        console.log("You win!");
+	  alert("You win!");
     });
   } 
   startLevel(0);

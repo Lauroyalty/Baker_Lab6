@@ -19,6 +19,10 @@
 				background-size: 20px 20px;
 				background-repeat: no-repeat;
 				}
+.cloud        {background-image: url("https://i.imgsafe.org/0d54927109.png");;
+				background-size: 20px 20px;
+				background-repeat: no-repeat;
+				}
 .enemy        {background-image: url("https://i.imgsafe.org/1b54c7977c.png");;
 				background-size: 20px 20px;
 				background-repeat: no-repeat;
@@ -30,3 +34,19 @@
   max-height: 450px;
   position: relative;
 }
+.lost .player {background-image: url("https://i.imgsafe.org/0f5a133df0.png");;
+				background-size: 20px 20px;
+				background-repeat: no-repeat;
+				}
+.filter .player {background-image: url("https://i.imgsafe.org/0f7e296efb.png");;
+				background-size: 20px 20px;
+				background-repeat: no-repeat;
+				}
+.background .win			{background-image: url("https://i.imgsafe.org/12eb0e4f96.gif");;
+                 table-layout: fixed;
+                 border-spacing: 0;  
+				 background-repeat: no-repeat;
+				 background-attachment: fixed;
+				table-layout: fixed;
+	
+				}
